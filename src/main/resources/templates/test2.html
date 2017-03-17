@@ -1,0 +1,49 @@
+<!DOCTYPE html xmlns:th="http://www.thymeleaf.org">
+
+
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+<!--
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+-->
+</head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<!--
+    <link href="../static/css/guru.css"
+          th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css"
+          th:href="@{vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" media="screen"/>
+    <!-- Theme CSS -->
+    <!--<link href="css/agency.min.css" rel="stylesheet">
+-->
+    <link href="../static/css/agency.min.css"
+          th:href="@{css/agency.min.css}" rel="stylesheet" media="screen"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          rel="stylesheet" media="screen" />
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+
+
+<body>
+
+<div class="container">
+    <th:block th:include="fragments/header :: header"></th:block>
+    <th:block th:bgcolor="groovy" th:include="fragments/headerinc ::head"></th:block>
+
+</div>
+
+</body>
+</html>
+

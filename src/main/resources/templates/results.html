@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+</head>
+
+<body>
+<div th:fragment="resultsList" th:unless="${#lists.isEmpty(guests)}" class="results-block">
+    <table>
+        <thead>
+        <tr>
+            <th >Id</th>
+            <th >Firstname</th>
+            <th >LastName</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>ZipCode</th>
+            <th>website</th>
+            <th>Description</th>
+            <th>Hosting</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="guest : ${guests}">
+            <td th:text="${guest.id}">id</td>
+            <td th:text="${guest.firstname}">surname</td>
+            <td th:text="${guest.lastname}">name</td>
+            <td th:text="${guest.email}">name</td>
+            <td th:text="${guest.city}">name</td>
+            <td th:text="${guest.address}">name</td>
+            <td th:text="${guest.zipcode}">name</td>
+            <td th:text="${guest.website}">name</td>
+            <td th:text="${guest.description}">name</td>
+            <td th:text="${guest.hosting}">name</td>
+
+
+
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

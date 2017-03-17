@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+<th:block th:include="fragments/header :: header"></th:block>
+<th:block th:include="fragments/headerinc :: headrinc"></th:block>
+
+<div th:fragment="resultsList" th:unless="${#lists.isEmpty(userslist)}"  class="results-block">
+    <table>
+        <thead>
+        <tr th:bgcolor="red">
+            <th >Id</th>
+            <th >Email</th>
+            <th >First Name</th>
+            <th>Last name</th>
+            <th>Active</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userslist}">
+            <td th:text="${user.id}">id</td>
+             <td th:text="${user.email}">surname</td>
+            <td th:text="${user.name}">name</td>
+            <td th:text="${user.lastName}">name</td>
+            <td th:text="${user.active}">name</td>
+ </tr>
+        </tbody>
+    </table>
+</div>
+    </div>
+        </div></div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/root_layout"
+>
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          rel="stylesheet" media="screen" />
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <style>
+        .thumbnail{
+            max-height: 50px;
+            max-width: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div layout:fragment="page-content">
+
+    <div class="container">
+        <!--<th:block th:include="fragments/header :: header"></th:block>
+        <th:block th:bgcolor="groovy" th:include="fragments/headerinc ::head"></th:block>
+        -->
+            <h2>Product List</h2>
+            <div align="left"><a th:href="@{/product/new}" ><button type="button" class="btn btn-primary"> Add Product</button></a></div><br/>
+
+        <table class="table table-striped">
+                <tr style="font-family: Sans-Serif ; font-style: inherit" >
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Action</th>
+
+                </tr>
+                <tr  th:each="product: ${cart.contents}">
+                    <td th:text="${product.key.name}">Product Name</td>
+                    <td th:text="${product.value}">Quantity</td>
+                    <td th:text="${product.key.price * product.value}">price</td>
+                    <td><a th:href="${'/product/deletecart/' + product.key.id}">Delete item</a></td>
+                </tr>
+                <th:block th:align="bottom">
+                    <div th:if="${cart.TotalCost >0}">
+                    <span style="color: red">Total Cost</span> &nbsp
+                    <span style="color: red" th:text="${cart.TotalCost}"></span>
+                    <div align="right">
+                        <span style="color: red">Total Items</span> &nbsp
+                        <span style="color: red" th:text="${cart.CartSize}"></span></div>
+                    </div>
+                </th:block>
+
+     </table>
+        <div align="left"><a th:href="@{/product/palaceorder}" ><button type="button" class="btn btn-primary"> palace order</button></a></div><br/>
+
+    </div>
+
+    <span th:utext="${message}"></span>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/root_layout"
+>
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          rel="stylesheet" media="screen" />
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <style>
+        .thumbnail{
+            max-height: 50px;
+            max-width: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div layout:fragment="page-content">
+
+<div class="container">
+    <!--<th:block th:include="fragments/header :: header"></th:block>
+    <th:block th:bgcolor="groovy" th:include="fragments/headerinc ::head"></th:block>
+    -->
+    <div th:if="${not #lists.isEmpty(products)}">
+        <h2>Product List</h2>
+        <div align="left"><a th:href="@{/product/new}" ><button type="button" class="btn btn-primary"> Add Product</button></a></div>
+        <div align="right"><a th:href="@{/UserDetail/Order/testusers}" ><button type="button" class="btn btn-primary"> Order Listt</button></a></div>
+        <br/>
+        <table class="table table-striped">
+            <tr style="font-family: Sans-Serif ; font-style: inherit" >
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image Location</th>
+                <th>Images</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Action</th>
+
+            </tr>
+           <tr  th:each="product: ${products}">
+                <td th:text="${product.name}">Product Name</td>
+                <td th:text="${product.description}">descirption</td>
+                <td th:text="${product.price}">price</td>
+                <td th:text="${product.imageUrl}">price</td>
+               <td><img src="../../static/uploads/*" th:src="@{'/uploads/'+${product.imageUrl}}" class="thumbnail"/></td>
+               <td><a th:href="${'/product/'+ product.id}">View</a></td>
+                <td><a th:href="${'/product/edit/'+ product.id}">Edit</a></td>
+                <td><a th:href="${'/product/delete/' + product.id}">Delete</a></td>
+               <td><a th:href="${'/product/cart/'+ product.id}">Add to cart</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+</div>
+</body>
+</html>
